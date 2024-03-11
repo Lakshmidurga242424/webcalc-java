@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from Git repository
-                git branch: 'main', url: 'https://github.com/beeru405/webcalc-java.git'
+                git branch: 'main', url: 'https://github.com/Lakshmidurga242424/webcalc-java.git'
             }
         }
 
@@ -16,18 +16,18 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('sonarqube') {
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
+       // stage('SonarQube Analysis') {
+         //   steps {
+           //     withSonarQubeEnv('sonarqube') {
+             //       sh 'mvn sonar:sonar'
+               // }
+            //}
+        //}
 
         stage('Deploy to Tomcat') {
             steps {
                 // Copy the war file to Tomcat webapps directory
-                deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://192.168.138.114:8081/')], contextPath: null, war: '**/*.war'
+                deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://192.168.56.151:8081/')], contextPath: null, war: '**/*.war'
             }
         }
 
