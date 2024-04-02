@@ -9,7 +9,7 @@ pipeline {
             }
         }
 
-        //stage('Build and Test') {
+        stage('Build and Test') {
             steps {
                 // Use Maven to build and test the project
                 sh 'mvn clean test install'
