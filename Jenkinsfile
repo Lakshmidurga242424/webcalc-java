@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy to Tomcat') {
             steps {
                 // Copy the war file to Tomcat webapps directory
-                deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://192.168.56.152:8081/')], contextPath: null, war: '**/*.war'
+                deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://192.168.132.131:8081/')], contextPath: null, war: '**/*.war'
             }
         }
 
@@ -38,8 +38,8 @@ pipeline {
                     //sleep(time: 30, unit: 'SECONDS')
 
                     // Perform API testing for GET and POST methods
-                    //def getResponse = sh(script: 'curl -X GET http://192.168.56.152:8081/webapp-0.2/', returnStdout: true).trim()
-                    //def postResponse = sh(script: 'curl -X POST -d "n1=5&n2=6&r1=add" http://192.168.56.152:8081/webapp-0.2/firstHomePage', returnStdout: true).trim()
+                    //def getResponse = sh(script: 'curl -X GET http://192.168.132.131:8081/webapp-0.2/', returnStdout: true).trim()
+                    //def postResponse = sh(script: 'curl -X POST -d "n1=5&n2=6&r1=add" http://192.168.132.131:8081/webapp-0.2/firstHomePage', returnStdout: true).trim()
 
                     // Print the responses
                     //echo "GET Response: ${getResponse}"
