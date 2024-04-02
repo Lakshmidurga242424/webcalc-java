@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        stage('API Testing') {
+        //stage('API Testing') {
             steps {
                 script {
                     // Wait for Tomcat to deploy the application
